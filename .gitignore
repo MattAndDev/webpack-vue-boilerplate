@@ -1,6 +1,7 @@
 # build
 css/
 js/
+images/
 !src/js
 
 # Node

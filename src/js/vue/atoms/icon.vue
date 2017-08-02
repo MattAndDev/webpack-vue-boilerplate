@@ -1,5 +1,5 @@
 <template>
-  <svg class="i-funnel-close funnelHeader_close">
+  <svg :class="'icon ' + classes">
     <use :xlink:href="this.icon.url"></use>
   </svg>
 </template>
@@ -14,7 +14,8 @@ export default {
     }
   },
   props: [
-    'iconName'
+    'iconName',
+    'classes'
   ],
   mounted () {
     this.icon = require(`icons/${this.iconName}.svg`).default

@@ -2,9 +2,7 @@
   <div ref='home' class="home">
     <div class="u-cw">
       <h1>home</h1>
-      <svg class="i-logo-mark funnelHeader_logo">
-        <use :xlink:href="unicorn.url"></use>
-      </svg>
+      <icon icon-name="unicorn" classes="my_unicorn_icon"></icon>
     </div>
   </div>
 </template>
@@ -16,11 +14,6 @@ export default {
   name: 'home',
   components: {
     Icon
-  },
-  data () {
-    return {
-      unicorn: unicorn
-    }
-  },
+  }
 }
 </script>

@@ -1,6 +1,8 @@
 <template>
   <div ref='home' class="home">
-    <h1>home</h1>
+    <div class="u-cw">
+      <h1>home</h1>
+    </div>
   </div>
 </template>
 <script>

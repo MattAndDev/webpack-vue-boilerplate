@@ -1,3 +1,8 @@
+# build
+css/
+js/
+!src/js
+
 # Node
 node_modules/
 
@@ -10,10 +15,6 @@ node_modules/
 # ignore public builds
 public/*
 
-# osx
-.DS_Store
 
-# build
-css/
-js/
-!src/js
+# osx
+*.DS_Store

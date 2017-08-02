@@ -1,0 +1,18 @@
+# Node
+node_modules/
+
+# npm
+*npm-debug.log
+
+# env
+*.env.js
+
+# ignore public builds
+public/*
+
+# osx
+.DS_Store
+
+# build
+css/
+js/

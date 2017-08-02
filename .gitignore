@@ -16,3 +16,4 @@ public/*
 # build
 css/
 js/
+!src/js

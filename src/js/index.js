@@ -9,7 +9,6 @@ let domReady = function (callback) {
 }
 
 domReady(() => {
-  console.log('rere');
   // Vue.config.devtools = false
   const app = new Vue({
     el: '#App',

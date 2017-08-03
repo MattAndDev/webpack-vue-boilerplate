@@ -24,22 +24,27 @@ module.exports = {
       }
     },
     // returns an array piped directly into webpacks `entry` option
-    get files () {
+    get entries () {
       return [
         res(this.paths.js, 'index.js'),
-        res(this.paths.sass, 'main.sass'),
-        // res(this.paths.html, 'index.ejs')
+        res(this.paths.sass, 'main.sass')
       ]
+    },
+    get files () {
+      return {
+        html: res(this.paths.html, 'index.html'),
+      }
     }
   },
 
   // distribution paths and files
   distribution: {
-    dir: res(__dirname, './'),
+    dir: res(__dirname, 'dist/'),
     get paths () {
       return {
         js: res(this.dir, 'js/'),
         svgSprite: res(this.dir, 'images/'),
+        html: this.dir,
         css: res(this.dir, 'css/')
       }
     },
@@ -47,6 +52,7 @@ module.exports = {
       return {
         svgSprite: res(this.paths.svgSprite, 'svg-icons.svg'),
         css: res(this.paths.css, 'main.css'),
+        html: res(this.dir, 'index.html'),
         js: res(this.paths.js, 'index.js')
       }
     },

@@ -27,14 +27,15 @@ const plugins = require('./webpack.plugins')
 module.exports = {
   // general setup from external files
   context: __dirname,
-  entry: settings.source.files,
+  entry: settings.source.entries,
   output: {
-    path: settings.distribution.paths.js,
-    filename: path.basename(settings.distribution.files.js)
+    path: settings.distribution.dir,
+    filename: path.relative(settings.distribution.dir, settings.distribution.files.js),
+    publicPath: '/',
   },
   devServer: {
-    publicPath: settings.source.paths.devServerJsPath,
     contentBase: settings.distribution.dir,
+    hotOnly: true,
     hot: true
   },
   plugins: plugins.list,
@@ -66,7 +67,7 @@ module.exports = {
             loader: 'svg-sprite-loader',
             options: {
               extract: true,
-              spriteFilename: path.relative(settings.source.dir, settings.distribution.files.svgSprite)
+              spriteFilename: path.relative(settings.distribution.dir, settings.distribution.files.svgSprite)
             }
           },
           'svgo-loader'
@@ -89,12 +90,7 @@ module.exports = {
           ],
           fallback: 'style-loader'
         })
-      },
-      // html
-      // {
-      //   test: /\.html$/,
-      //   loader: 'html-loader'
-      // }
+      }
     ]
   },
   // resolvign rules

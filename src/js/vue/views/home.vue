@@ -1,7 +1,7 @@
 <template>
   <div ref='home' class="home">
     <div class="u-cw">
-      <h1>home</h1>
+      <h1>Webpack-vue unicorns</h1>
       <icon icon-name="unicorn" classes="my_unicorn_icon"></icon>
     </div>
   </div>

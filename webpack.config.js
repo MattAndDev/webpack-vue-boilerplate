@@ -1,42 +1,38 @@
 // ============================================
-// Main webpack config file
+// Webpack config
 // ============================================
+// this is the real webpack config
+// please consider using external files before diving into this
+
+// - webapack.settings.js
+// - webapack.plugins.js
 
 // core libs
 const path = require('path')
 const webpack = require('webpack')
+
 // node_modules
 const nodeModulesDir = path.resolve(__dirname, './node_modules')
+
 // settings
 const settings = require('./webpack.settings')
 
-
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
-
-const extractSass = new ExtractTextPlugin({
-  filename: '../css/main.css',
-  disable: process.env.NODE_ENV === 'development'
-})
-
+// settings
+const plugins = require('./webpack.plugins')
 module.exports = {
   context: __dirname,
   entry: settings.source.files,
   output: {
     path: settings.distribution.paths.js,
-    filename: settings.distribution.files.js
+    filename: path.basename(settings.distribution.files.js)
   },
   devServer: {
     publicPath: '/js/',
     contentBase: settings.distribution.dir,
     hot: true
   },
-  plugins: [
-    new SpriteLoaderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    extractSass
-  ],
-  devtool: "source-map",
+  plugins: plugins.list,
+  devtool: 'source-map',
   module: {
     rules: [
       // JavaScript
@@ -64,7 +60,7 @@ module.exports = {
             loader: 'svg-sprite-loader',
             options: {
               extract: true,
-              spriteFilename: '../images/svg-icons.svg'
+              spriteFilename: path.relative(settings.source.paths.js, settings.distribution.files.svgSprite)
             }
           },
           'svgo-loader'
@@ -73,7 +69,7 @@ module.exports = {
       // sass
       {
         test: /\.sass$/,
-        use: extractSass.extract({
+        use: plugins.single.extractSass.extract({
           use: [
             {
               loader: 'css-loader'
@@ -93,6 +89,7 @@ module.exports = {
   },
   // resolvign rules
   resolve: {
+    // alias piped from webpack.settings
     alias: settings.aliases
   }
 }

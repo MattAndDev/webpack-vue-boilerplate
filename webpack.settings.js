@@ -36,14 +36,15 @@ module.exports = {
     get paths () {
       return {
         js: res(this.dir, 'js/'),
+        svgSprite: res(this.dir, 'images/'),
         css: res(this.dir, 'css/')
       }
     },
     get files () {
       return {
+        svgSprite: res(this.paths.svgSprite, 'svg-icons.svg'),
         css: res(this.paths.css, 'main.css'),
-        // only filename accepted
-        js: 'index.js'
+        js: res(this.paths.js, 'index.js')
       }
     },
   },

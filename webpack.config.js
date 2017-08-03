@@ -4,8 +4,11 @@
 // this is the real webpack config
 // please consider using external files before diving into this
 
-// - webapack.settings.js
-// - webapack.plugins.js
+// to manage folder structure and filenamse use:
+// webapack.settings.js
+
+// to manage plugins use:
+// webapack.plugins.js
 
 // core libs
 const path = require('path')
@@ -17,9 +20,12 @@ const nodeModulesDir = path.resolve(__dirname, './node_modules')
 // settings
 const settings = require('./webpack.settings')
 
-// settings
+// plugins
 const plugins = require('./webpack.plugins')
+
+
 module.exports = {
+  // general setup from external files
   context: __dirname,
   entry: settings.source.files,
   output: {
@@ -27,7 +33,7 @@ module.exports = {
     filename: path.basename(settings.distribution.files.js)
   },
   devServer: {
-    publicPath: '/js/',
+    publicPath: settings.source.paths.devServerJsPath,
     contentBase: settings.distribution.dir,
     hot: true
   },
@@ -60,7 +66,7 @@ module.exports = {
             loader: 'svg-sprite-loader',
             options: {
               extract: true,
-              spriteFilename: path.relative(settings.source.paths.js, settings.distribution.files.svgSprite)
+              spriteFilename: path.relative(settings.source.dir, settings.distribution.files.svgSprite)
             }
           },
           'svgo-loader'

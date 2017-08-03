@@ -18,10 +18,11 @@ module.exports = {
         js: res(this.dir, 'js/'),
         vue: res(this.dir, 'js/vue'),
         sass: res(this.dir, 'sass/'),
-        svg: res(this.dir, 'svg-icons/')
+        svg: res(this.dir, 'svg-icons/'),
+        devServerJsPath: '/js/'
       }
     },
-    // returns an array iped directly into webpacks `entry` option
+    // returns an array piped directly into webpacks `entry` option
     get files () {
       return [
         res(this.paths.js, 'index.js'),
@@ -32,7 +33,7 @@ module.exports = {
 
   // distribution paths and files
   distribution: {
-    dir: res(__dirname, 'dist'),
+    dir: res(__dirname, './'),
     get paths () {
       return {
         js: res(this.dir, 'js/'),

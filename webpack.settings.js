@@ -18,6 +18,7 @@ module.exports = {
         js: res(this.dir, 'js/'),
         vue: res(this.dir, 'js/vue'),
         sass: res(this.dir, 'sass/'),
+        html: res(this.dir, 'html/'),
         svg: res(this.dir, 'svg-icons/'),
         devServerJsPath: '/js/'
       }
@@ -26,7 +27,8 @@ module.exports = {
     get files () {
       return [
         res(this.paths.js, 'index.js'),
-        res(this.paths.sass, 'main.sass')
+        res(this.paths.sass, 'main.sass'),
+        // res(this.paths.html, 'index.ejs')
       ]
     }
   },

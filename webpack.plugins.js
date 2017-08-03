@@ -23,6 +23,13 @@ const extractSass = new ExtractTextPlugin({
 })
 
 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const writeHtmlFiles = new HtmlWebpackPlugin({
+  title: 'My App',
+  filename: path.resolve(__dirname, './html/index.html'),
+  template: path.resolve(__dirname, './src/html/index.html')
+})
+
 // export plugins to be fed into webpack.config.plugins
 module.exports = {
   get list () {
@@ -31,6 +38,7 @@ module.exports = {
       new webpack.HotModuleReplacementPlugin(),
       // others
       new SpriteLoaderPlugin(),
+      writeHtmlFiles,
       extractSass
     ]
   },

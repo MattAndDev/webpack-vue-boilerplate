@@ -90,7 +90,11 @@ module.exports = {
           fallback: 'style-loader'
         })
       },
-
+      // html
+      // {
+      //   test: /\.html$/,
+      //   loader: 'html-loader'
+      // }
     ]
   },
   // resolvign rules

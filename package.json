@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "NODE_ENV=development npm-run-all build-watch start-watch",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack --config webpack.config.js",
-    "build-watch": "NODE_ENV=development ./node_modules/.bin/webpack --display errors-only --config webpack.config.js",
+    "build-watch": "NODE_ENV=production ./node_modules/.bin/webpack --display errors-only --config webpack.config.js",
     "start-watch": "NODE_ENV=development ./node_modules/.bin/webpack-dev-server --config webpack.config.js"
   },
   "repository": {

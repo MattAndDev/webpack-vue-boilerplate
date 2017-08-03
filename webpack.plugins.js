@@ -5,6 +5,7 @@
 
 // core
 const webpack = require('webpack')
+const path = require('path')
 
 // settings
 const settings = require('./webpack.settings')
@@ -16,7 +17,7 @@ const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 // used to write css to file in production
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const extractSass = new ExtractTextPlugin({
-  filename: settings.distribution.files.css,
+  filename: path.relative(settings.source.paths.js, settings.distribution.files.css),
   // disbale if developemnt mode // falls back to style-loader
   disable: process.env.NODE_ENV === 'development'
 })

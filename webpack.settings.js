@@ -32,7 +32,7 @@ module.exports = {
 
   // distribution paths and files
   distribution: {
-    dir: res(__dirname, './'),
+    dir: res(__dirname, 'dist'),
     get paths () {
       return {
         js: res(this.dir, 'js/'),

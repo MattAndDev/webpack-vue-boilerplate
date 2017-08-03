@@ -1,12 +1,15 @@
+// ============================================
+// Main webpack config file
+// ============================================
+
+// core libs
 const path = require('path')
 const webpack = require('webpack')
-const srcDir = path.resolve(__dirname, 'src/')
-const jsDir = path.resolve(__dirname, 'src/js/')
-const vueDir = path.resolve(__dirname, 'src/js/vue')
-const sassDir = path.resolve(__dirname, 'src/sass/')
-const svgIconsDir = path.resolve(__dirname, 'src/svg-icons/')
-const distDir = path.resolve(__dirname, './')
+// node_modules
 const nodeModulesDir = path.resolve(__dirname, './node_modules')
+// settings
+const settings = require('./webpack.settings')
+
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
@@ -16,20 +19,16 @@ const extractSass = new ExtractTextPlugin({
   disable: process.env.NODE_ENV === 'development'
 })
 
-
 module.exports = {
   context: __dirname,
-  entry: [
-    path.resolve(__dirname, 'src/js/index.js'),
-    path.resolve(__dirname, 'src/sass/main.sass')
-  ],
+  entry: settings.source.files,
   output: {
-    path: path.resolve(distDir, 'js'),
-    filename: 'index.js'
+    path: settings.distribution.paths.js,
+    filename: settings.distribution.files.js
   },
   devServer: {
     publicPath: '/js/',
-    contentBase: distDir,
+    contentBase: settings.distribution.dir,
     hot: true
   },
   plugins: [
@@ -37,6 +36,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     extractSass
   ],
+  devtool: "source-map",
   module: {
     rules: [
       // JavaScript
@@ -93,15 +93,6 @@ module.exports = {
   },
   // resolvign rules
   resolve: {
-    alias: {
-      icons: svgIconsDir,
-      vue: 'vue/dist/vue.common.js',
-      atoms: path.resolve(vueDir, 'atoms'),
-      molecules: path.resolve(vueDir, 'molecules'),
-      organisms: path.resolve(vueDir, 'organisms'),
-      views: path.resolve(vueDir, 'views'),
-      store: path.resolve(jsDir, 'store'),
-      settings: path.resolve(jsDir, 'utils/settings')
-    }
+    alias: settings.aliases
   }
 }

@@ -1,5 +1,5 @@
 // =======================================================================
-// settings.js
+// windowConfig.js
 // =======================================================================
 // Basic class to store global data and manage dom wide events
 // =======================================================================
@@ -8,9 +8,9 @@
 // Importing libs
 import EventEmitter from 'eventemitter3'
 
-// Settings class
+// windowConfig class
 
-class Settings extends EventEmitter {
+class WindowConfig extends EventEmitter {
 
   constructor () {
 
@@ -144,4 +144,4 @@ class Settings extends EventEmitter {
 
 }
 
-export default new Settings()
+export default new WindowConfig()

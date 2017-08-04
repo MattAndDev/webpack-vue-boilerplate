@@ -14,11 +14,11 @@
 const path = require('path')
 const webpack = require('webpack')
 
-// node_modules
-const nodeModulesDir = path.resolve(__dirname, './node_modules')
-
 // settings
 const settings = require('./webpack.settings')
+
+// node_modules
+const nodeModulesDir = path.resolve(settings.baseDir, './node_modules')
 
 // plugins
 const plugins = require('./webpack.plugins')

@@ -31,7 +31,7 @@ module.exports = {
   output: {
     path: settings.distribution.dir,
     filename: path.relative(settings.distribution.dir, settings.distribution.files.js),
-    publicPath: '/',
+    publicPath: '/'
   },
   devServer: {
     contentBase: settings.distribution.dir,

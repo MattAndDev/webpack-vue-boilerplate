@@ -33,7 +33,7 @@ module.exports = {
       },
       get files () {
         return {
-          html: res(this.paths.html, 'index.html'),
+          html: res(this.paths.html, 'index.html')
         }
       }
     }
@@ -58,7 +58,7 @@ module.exports = {
           html: res(this.dir, 'index.html'),
           js: res(this.paths.js, 'index.js')
         }
-      },
+      }
     }
   },
 

@@ -29,7 +29,7 @@ const extractSass = new ExtractTextPlugin({
 // Create the write html files plugin
 // ============================================
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const writeHtmlFiles = new HtmlWebpackPlugin({
   inject: false,
   filename: settings.distribution.files.html,
@@ -37,7 +37,7 @@ const writeHtmlFiles = new HtmlWebpackPlugin({
   alwaysWriteToDisk: true,
   cache: false
 })
-var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 
 
 

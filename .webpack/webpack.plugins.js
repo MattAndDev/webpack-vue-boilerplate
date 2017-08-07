@@ -40,18 +40,38 @@ const writeHtmlFiles = new HtmlWebpackPlugin({
 var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 
 
+// Babili for js minification
+const BabiliPlugin = require('babili-webpack-plugin')
+
+const basePlugins = [
+  // others
+  new SpriteLoaderPlugin(),
+  writeHtmlFiles,
+  new HtmlWebpackHarddiskPlugin(),
+  extractSass
+]
+
+const devPlugins = [
+  new webpack.HotModuleReplacementPlugin()
+]
+
+const buildPlugins = [
+  new BabiliPlugin()
+]
+
+let plugins = []
+if (process.env.NODE_ENV === 'production') {
+  plugins = basePlugins.concat(buildPlugins)
+}
+else {
+  plugins = basePlugins.concat(devPlugins)
+}
+
 
 // export plugins to be fed into webpack.config.plugins
 module.exports = {
   get list () {
-    return [
-      new webpack.HotModuleReplacementPlugin(),
-      // others
-      new SpriteLoaderPlugin(),
-      writeHtmlFiles,
-      new HtmlWebpackHarddiskPlugin(),
-      extractSass
-    ]
+    return plugins
   },
   single: {
     extractSass: extractSass

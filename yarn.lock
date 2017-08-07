@@ -1852,6 +1852,12 @@ eslint-module-utils@^2.1.1:
     debug "^2.6.8"
     pkg-dir "^1.0.0"
 
+eslint-plugin-html@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-html/-/eslint-plugin-html-3.1.1.tgz#d6c03796e89ac6b735da6fef9ca9162b423daee3"
+  dependencies:
+    htmlparser2 "^3.8.2"
+
 eslint-plugin-import@^2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.7.0.tgz#21de33380b9efb55f5ef6d2e210ec0e07e7fa69f"
@@ -2574,7 +2580,7 @@ html-webpack-plugin@^2.30.1:
     pretty-error "^2.0.2"
     toposort "^1.0.0"
 
-htmlparser2@^3.8.3:
+htmlparser2@^3.8.2, htmlparser2@^3.8.3:
   version "3.9.2"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.9.2.tgz#1bdf87acca0f3f9e53fa4fcceb0f4b4cbb00b338"
   dependencies:
@@ -5025,8 +5031,8 @@ svg-baker-runtime@^1.2.98:
     svg-baker "^1.2.0"
 
 svg-baker@^1.2.0, svg-baker@^1.2.10:
-  version "1.2.10"
-  resolved "https://registry.yarnpkg.com/svg-baker/-/svg-baker-1.2.10.tgz#486a44434539142cedc583222c8f2788fd84a0af"
+  version "1.2.11"
+  resolved "https://registry.yarnpkg.com/svg-baker/-/svg-baker-1.2.11.tgz#9cd7322fc879e449616847b788fe79e740156ca0"
   dependencies:
     bluebird "^3.5.0"
     clone "^2.1.1"

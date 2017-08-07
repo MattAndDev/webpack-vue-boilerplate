@@ -1,6 +1,6 @@
 {
   "env": {
-    "browser": true,
+    "browser": "true",
     "node": true
   },
   extends: [
@@ -23,5 +23,6 @@
     "eol-last": [0],
     "no-mixed-requires": [0],
     "no-underscore-dangle": [0]
-  }
+  },
+  "plugins": ["html"]
 }

@@ -10,6 +10,7 @@ start dev environment like `npm run watch`
 
 build for production like `npm run build`
 
+> Note: this boilerplate is designed to work at best in an [atom](https://atom.io/) editor environment
 
 ### Usage details
 
@@ -27,15 +28,16 @@ This script will run the build script once and then start a dev server serving t
 
 
 ##### build
-Tis script will compile webpack by extracting the non `js` resources  (sass, svg(tbd)) and save them as separate files.
+Tis script will compile webpack by extracting the non `js` resources  (sass, svg, html) and save them as separate files.
 Basically the script you want to run before pushign updates
 
 
 ### Vue setup
-tbd
+All vue partials file can be found within the `src/js/vue/` folder, already scaffolded to match atomic design patterns. The only exception is the main vue entry point called `app.vue` and lcoated in the main `src/js/` folder.
+Eslint is configured and ready to handle also vue files (as well as webpack, of course)
 
 ### Sass setup
-tbd
+Sass main file located in `src/sass/` will be compiled in memory for the `watch` script, this will allow you to have hot module replacement event for styles. Same as for the `vue/` fodler, sass is scaffolded to match atomica design approach.
 
 ### Svg-icons setup
 tbd
